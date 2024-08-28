@@ -6,7 +6,7 @@ const Navbar = ({ handleLogout }) => {
     <>
       <nav className="flex justify-between">
         <Link to="/home">
-          <img src={logo} className="h-20 w-auto" />
+          <img src={logo} alt="LOGO" className="h-20 w-auto" />
         </Link>
 
         <button

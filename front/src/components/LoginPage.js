@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Cookie from "js-cookie";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.jpg";
@@ -41,7 +40,7 @@ const LoginPage = () => {
       if (status === "user not found") {
         navigate("/register");
       }
-      if (status == "incorrect password") {
+      if (status === "incorrect password") {
         setUserdetails({ ...userdetails, password: "" });
       }
     });
@@ -50,7 +49,7 @@ const LoginPage = () => {
     <section className="bg-blue-300">
       <nav className="flex justify-between p-6 ">
         <Link to="/">
-          <img src={logo} className="h-20 w-auto" />
+          <img src={logo} alt="LOGO" className="h-20 w-auto" />
         </Link>
       </nav>
       <div className="flex flex-col items-center justify-start px-6 py-20 h-screen">

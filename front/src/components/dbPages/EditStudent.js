@@ -34,17 +34,17 @@ const EditStudent = () => {
         // Redirect to login page
         // Redirect to login page
       } else {
-        console.error("Failed to logout");
+        alert("Failed to logout");
       }
     } catch (error) {
-      console.error("Error logging out:", error);
+      alert("Error logging out:", error);
     }
   };
 
   const loadDetails = async () => {
     try {
       const token = Cookies.get("accessToken");
-      console.log(token);
+
       const user = await axios.get(`/api/student/edit/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -52,15 +52,14 @@ const EditStudent = () => {
         withCredentials: true,
       });
       setDT(user.data);
-      console.log(user.data);
     } catch (error) {
-      console.log("Error", error);
+      alert("Error", error);
     }
   };
 
   useEffect(() => {
     loadDetails();
-  }, []);
+  });
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
@@ -82,7 +81,7 @@ const EditStudent = () => {
     }
     try {
       const token = Cookies.get("accessToken");
-      console.log(token);
+
       const res = await axios.put(`/api/student/edit/${id}`, dt, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -91,7 +90,7 @@ const EditStudent = () => {
       });
       alert(res.data.status);
     } catch (error) {
-      console.log("error while editing student", error);
+      alert("error while editing student", error);
     }
     navigate("/students");
   };

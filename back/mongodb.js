@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
 // Connection string to the MONGO-DB database
-const mongoURL =
-  "mongodb+srv://mysticmak:mysticmak@cluster01.p7dox0c.mongodb.net/CRUD_database?retryWrites=true&w=majority&appName=Cluster01";
+const mongoURL = process.env.MONGO_URL;
 
 const mongodb = () => {
   mongoose

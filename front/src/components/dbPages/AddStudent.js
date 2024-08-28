@@ -32,10 +32,10 @@ const AddStudent = () => {
         // Redirect to login page
         // Redirect to login page
       } else {
-        console.error("Failed to logout");
+        alert("Failed to logout");
       }
     } catch (error) {
-      console.error("Error logging out:", error);
+      alert("Error logging out:", error);
     }
   };
 
@@ -67,7 +67,6 @@ const AddStudent = () => {
     }
 
     const token = Cookies.get("accessToken");
-    console.log(token); // Assuming you have the token in cookies
     axios
       .post("/api/add_student", newStudent, {
         headers: {

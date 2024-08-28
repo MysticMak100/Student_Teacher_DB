@@ -29,10 +29,10 @@ const Home = () => {
         // Redirect to login page
         // Redirect to login page
       } else {
-        console.error("Failed to logout");
+        alert("Failed to logout");
       }
     } catch (error) {
-      console.error("Error logging out:", error);
+      alert("Error logging out:", error);
     }
   };
 

@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node --watch index.js"
+    "start": "node --watch index.js",
+    "build": "npm build back"
   },
   "author": "Ateeque",
   "license": "ISC",

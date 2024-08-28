@@ -33,17 +33,17 @@ const EditTeacher = () => {
         // Redirect to login page
         // Redirect to login page
       } else {
-        console.error("Failed to logout");
+        alert("Failed to logout");
       }
     } catch (error) {
-      console.error("Error logging out:", error);
+      alert("Error logging out:", error);
     }
   };
 
   const loadDetails = async () => {
     try {
       const token = Cookies.get("accessToken");
-      console.log(token);
+
       const user = await axios.get(`/api/teacher/edit/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -52,13 +52,13 @@ const EditTeacher = () => {
       });
       setDT(user.data);
     } catch (error) {
-      console.log("Error", error);
+      alert("Error", error);
     }
   };
 
   useEffect(() => {
     loadDetails();
-  }, []);
+  });
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
@@ -81,7 +81,7 @@ const EditTeacher = () => {
 
     try {
       const token = Cookies.get("accessToken");
-      console.log(token);
+
       const res = await axios.put(`/api/teacher/edit/${id}`, dt, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -90,7 +90,7 @@ const EditTeacher = () => {
       });
       alert(res.data.status);
     } catch (error) {
-      console.log("error while editing teacher", error);
+      alert("error while editing teacher", error);
     }
     navigate("/teachers");
   };

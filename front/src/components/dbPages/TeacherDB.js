@@ -109,10 +109,6 @@ const TeacherDB = () => {
     navigate("/students");
   };
 
-  const refreshPage = () => {
-    window.location.reload();
-  };
-
   return (
     <section className="bg-gray-900">
       <div className="px-6 mx-auto h-screen pt-6">

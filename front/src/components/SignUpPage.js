@@ -43,7 +43,7 @@ const SignUpPage = () => {
     <section className="bg-blue-200">
       <nav className="flex justify-between p-6">
         <Link to="/">
-          <img src={logo} className="h-20 w-auto" />
+          <img src={logo} alt="LOGO" className="h-20 w-auto" />
         </Link>
       </nav>
       <div className="flex flex-col items-center justify-start px-6 py-2 h-screen">

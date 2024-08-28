@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.jpg";
 
@@ -10,7 +9,7 @@ const Front = () => {
         <div className="px-6 mx-auto h-screen pt-6">
           <nav className="flex justify-between">
             <Link to="/">
-              <img src={logo} className="h-20 w-auto" />
+              <img src={logo} alt="LOGO" className="h-20 w-auto" />
             </Link>
           </nav>
           <div className="h-max flex justify-center mt-40">
