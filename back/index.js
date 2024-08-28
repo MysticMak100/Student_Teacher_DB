@@ -31,7 +31,7 @@ const app = express();
 app.use(cookieParser());
 
 const allowedOrigins = [
-  "https://teacher-student-db.netlify.app", // Production frontend URL
+  "https://main--teacher-student-db.netlify.app/login", // Production frontend URL
   "http://localhost:3000", // Local development URL
 ];
 
