@@ -31,18 +31,28 @@ const app = express();
 app.use(cookieParser());
 
 const allowedOrigins = [
-  "https://main--teacher-student-db.netlify.app/login", // Production frontend URL
+  "https://teacher-student-db.netlify.app", // Your actual frontend URL
   "http://localhost:3000", // Local development URL
 ];
 
+// Use CORS middleware with options
 app.use(
   cors({
-    origin: allowedOrigins, // Allow requests from specified origins
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
+    credentials: true, // Allows cookies to be sent with requests
     preflightContinue: false,
-    optionsSuccessStatus: 204,
+    optionsSuccessStatus: 204, // Some legacy browsers choke on 204
   })
 );
 
