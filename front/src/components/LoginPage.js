@@ -102,12 +102,12 @@ const LoginPage = () => {
               </button>
               <p className="text-sm text-white">
                 Don't have an account?{" "}
-                <a
-                  href="/register"
+                <Link
+                  to="/register"
                   className="font-medium hover:underline dark:text-primary-500"
                 >
                   SIGN UP HERE
-                </a>
+                </Link>
               </p>
             </form>
           </div>
