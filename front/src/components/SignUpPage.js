@@ -150,12 +150,12 @@ const SignUpPage = () => {
               </button>
               <p className="text-white text-sm">
                 Already having an account?{" "}
-                <a
-                  href="/login"
+                <Link
+                  to="/login"
                   className="font-medium hover:underline dark:text-primary-500"
                 >
                   LOGIN HERE
-                </a>
+                </Link>
               </p>
             </form>
           </div>
