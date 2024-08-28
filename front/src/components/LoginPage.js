@@ -29,21 +29,23 @@ const LoginPage = () => {
       alert("Please fill all fields.");
       return;
     }
-    axios.post("http://localhost:5000/login", userdetails).then((res) => {
-      alert(res.data.status);
-      const { status } = res.data;
-      if (status === "login successful") {
-        Cookies.set("accessToken", res.data.accessToken);
-        Cookies.set("refreshToken", res.data.refreshToken);
-        window.location.reload();
-      }
-      if (status === "user not found") {
-        navigate("/register");
-      }
-      if (status === "incorrect password") {
-        setUserdetails({ ...userdetails, password: "" });
-      }
-    });
+    axios
+      .post("https://student-teacher-db.onrender.com/login", userdetails)
+      .then((res) => {
+        alert(res.data.status);
+        const { status } = res.data;
+        if (status === "login successful") {
+          Cookies.set("accessToken", res.data.accessToken);
+          Cookies.set("refreshToken", res.data.refreshToken);
+          window.location.reload();
+        }
+        if (status === "user not found") {
+          navigate("/register");
+        }
+        if (status === "incorrect password") {
+          setUserdetails({ ...userdetails, password: "" });
+        }
+      });
   };
   return (
     <section className="bg-blue-300">

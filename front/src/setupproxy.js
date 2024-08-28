@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/api",
     createProxyMiddleware({
-      target: "http://localhost:5000",
+      target: "https://student-teacher-db.onrender.com/",
       changeOrigin: true,
       pathRewrite: {
         "^/api": "", // remove /api prefix when forwarding
