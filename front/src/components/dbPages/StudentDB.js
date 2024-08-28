@@ -49,12 +49,15 @@ const StudentDB = () => {
         return;
       }
 
-      const res = await axios.get("/api/students", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        "https://student-teacher-db.onrender.com/api/students",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
       console.log(res.data);
       setData(res.data);
       setDatafound(true);
