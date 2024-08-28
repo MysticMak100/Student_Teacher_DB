@@ -17,7 +17,7 @@ const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET;
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // Your frontend URL
+    origin: "https://teacher-student-db.netlify.app/", // Your frontend URL
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -104,7 +104,10 @@ export const handleLogout = async (req, res) => {
     res.clearCookie("refreshToken", { sameSite: "None", secure: true });
 
     // Set CORS headers
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.setHeader(
+      "Access-Control-Allow-Origin",
+      "https://teacher-student-db.netlify.app/"
+    );
     res.setHeader("Access-Control-Allow-Methods", "POST");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     res.setHeader("Access-Control-Allow-Credentials", "true");

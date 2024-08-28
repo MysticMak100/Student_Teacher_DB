@@ -50,7 +50,7 @@ const StudentDB = () => {
       }
 
       const res = await axios.get(
-        "https://student-teacher-db.onrender.com/api/students",
+        "https://student-teacher-db.onrender.com/students",
         {
           headers: {
             Authorization: `Bearer ${token}`,
