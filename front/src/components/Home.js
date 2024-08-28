@@ -12,7 +12,7 @@ const Home = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.post(
-        "/api/logout",
+        "https://student-teacher-db.onrender.com/logout",
         {},
         { withCredentials: true }
       );

@@ -44,12 +44,15 @@ const EditTeacher = () => {
     try {
       const token = Cookies.get("accessToken");
 
-      const user = await axios.get(`/api/teacher/edit/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        withCredentials: true,
-      });
+      const user = await axios.get(
+        `https://student-teacher-db.onrender.com/teacher/edit/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
       setDT(user.data);
     } catch (error) {
       alert("Error", error);
@@ -82,12 +85,16 @@ const EditTeacher = () => {
     try {
       const token = Cookies.get("accessToken");
 
-      const res = await axios.put(`/api/teacher/edit/${id}`, dt, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        withCredentials: true,
-      });
+      const res = await axios.put(
+        `https://student-teacher-db.onrender.com/teacher/edit/${id}`,
+        dt,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
       alert(res.data.status);
     } catch (error) {
       alert("error while editing teacher", error);

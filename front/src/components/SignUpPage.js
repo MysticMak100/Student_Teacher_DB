@@ -31,11 +31,13 @@ const SignUpPage = () => {
         alert("Please add all fields");
       }
       if (name && email && password && password === confirmPassword) {
-        axios.post("/api/register", userdetails).then((res) => {
-          alert(res.data.status);
-          // console.log(res.data)
-          navigate("/login");
-        });
+        axios
+          .post("https://student-teacher-db.onrender.com/register", userdetails)
+          .then((res) => {
+            alert(res.data.status);
+            // console.log(res.data)
+            navigate("/login");
+          });
       }
     }
   };

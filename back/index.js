@@ -30,9 +30,14 @@ dotenv.config();
 const app = express();
 app.use(cookieParser());
 
+const allowedOrigins = [
+  "https://teacher-student-db.netlify.app", // Production frontend URL
+  "http://localhost:3000", // Local development URL
+];
+
 app.use(
   cors({
-    origin: "https://main--teacher-student-db.netlify.app",
+    origin: allowedOrigins, // Allow requests from specified origins
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,

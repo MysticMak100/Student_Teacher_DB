@@ -46,12 +46,15 @@ const TeacherDB = () => {
     try {
       const token = Cookies.get("accessToken");
       console.log(token); // Assuming you have the token in cookies
-      const res = await axios.get("/api/teachers", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        "https://student-teacher-db.onrender.com/teachers",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
       console.log(res.data);
       setData(res.data);
       setDatafound(true);

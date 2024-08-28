@@ -15,7 +15,7 @@ const AddStudent = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.post(
-        "/api/logout",
+        "/https://student-teacher-db.onrender.com/logout",
         {},
         { withCredentials: true }
       );
@@ -68,7 +68,7 @@ const AddStudent = () => {
 
     const token = Cookies.get("accessToken");
     axios
-      .post("/api/add_student", newStudent, {
+      .post("https://student-teacher-db.onrender.com/add_student", newStudent, {
         headers: {
           authorization: `Bearer ${token}`,
         },
