@@ -120,10 +120,10 @@ export const handleLogout = async (req, res) => {
     res.clearCookie("accessToken", { sameSite: "None", secure: true });
     res.clearCookie("refreshToken", { sameSite: "None", secure: true });
 
-    // Set CORS headers
+    // Set CORS headers correctly for cross-origin requests
     res.setHeader(
       "Access-Control-Allow-Origin",
-      "https://teacher-student-db.netlify.app/"
+      "https://teacher-student-db.netlify.app"
     );
     res.setHeader("Access-Control-Allow-Methods", "POST");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");

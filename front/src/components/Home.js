@@ -32,7 +32,7 @@ const Home = () => {
         alert("Failed to logout");
       }
     } catch (error) {
-      alert("Error logging out:", error);
+      console.log("Error logging out:", error);
     }
   };
 
