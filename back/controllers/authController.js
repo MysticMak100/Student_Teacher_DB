@@ -95,6 +95,20 @@ export const handleLogin = (req, res) => {
         RefreshModel.create({ token: refreshToken }).then((result, error) => {
           if (error) return res.send({ status: "incorrect password" });
         });
+
+        // Set cookies for accessToken and refreshToken
+        res.cookie("accessToken", accessToken, {
+          httpOnly: true,
+          secure: true, // Ensure cookies are only sent over HTTPS
+          sameSite: "None", // Required for cross-site cookies
+        });
+
+        res.cookie("refreshToken", refreshToken, {
+          httpOnly: true,
+          secure: true,
+          sameSite: "None",
+        });
+
         res.send({ status: "login successful", accessToken, refreshToken });
       } else {
         res.send({ status: "incorrect password" });

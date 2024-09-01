@@ -38,7 +38,7 @@ const LoginPage = () => {
         if (status == "login successful") {
           Cookies.set("accessToken", res.data.accessToken);
           Cookies.set("refreshToken", res.data.refreshToken);
-          navigate("/home");
+          navigate("https://teacher-student-db.netlify.app/home");
         }
         if (status === "user not found") {
           navigate("/register");
