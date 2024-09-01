@@ -62,7 +62,7 @@ const EditStudent = () => {
 
   useEffect(() => {
     loadDetails();
-  });
+  }, []);
 
   const changeHandler = (e) => {
     const { name, value } = e.target;

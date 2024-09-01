@@ -37,7 +37,7 @@ const LoginPage = () => {
         if (status === "login successful") {
           Cookies.set("accessToken", res.data.accessToken);
           Cookies.set("refreshToken", res.data.refreshToken);
-          window.location.reload();
+          navigate("/home");
         }
         if (status === "user not found") {
           navigate("/register");

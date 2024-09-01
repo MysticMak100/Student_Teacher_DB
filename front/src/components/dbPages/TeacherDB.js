@@ -17,7 +17,7 @@ const TeacherDB = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.post(
-        "/api/logout",
+        "https://student-teacher-db.onrender.com/logout",
         {},
         { withCredentials: true }
       );
@@ -74,12 +74,15 @@ const TeacherDB = () => {
         return;
       }
 
-      const res = await axios.delete(`/api/teacher/${_id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        withCredentials: true,
-      });
+      const res = await axios.delete(
+        `https://student-teacher-db.onrender.com/teacher/${_id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
       alert(res.data.status);
     } catch (error) {
       alert("Error while deleting");

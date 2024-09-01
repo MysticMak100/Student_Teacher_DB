@@ -11,9 +11,12 @@ const useRefresh = () => {
 
   const refreshTokenFunction = async (token) => {
     try {
-      const { data } = await axios.post("http://localhost:5000/refresh", {
-        refreshToken: token,
-      });
+      const { data } = await axios.post(
+        "https://student-teacher-db.onrender.com/refresh",
+        {
+          refreshToken: token,
+        }
+      );
       const payload = decodeJwt(data.accessToken);
       setAuth({
         name: payload.name,

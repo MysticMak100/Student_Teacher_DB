@@ -79,12 +79,15 @@ const StudentDB = () => {
         return;
       }
 
-      const res = await axios.delete(`/api/student/${_id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        withCredentials: true,
-      });
+      const res = await axios.delete(
+        `https://student-teacher-db.onrender.com/student/${_id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
       alert(res.data.status);
       getStudents(); // Refresh the data after deleting
     } catch (error) {
