@@ -34,8 +34,8 @@ const LoginPage = () => {
       .then((res) => {
         alert(res.data.status);
         const { status } = res.data;
-        console.log(status);
-        if (status === "login successful") {
+        console.log(status.type);
+        if (status == "login successful") {
           Cookies.set("accessToken", res.data.accessToken);
           Cookies.set("refreshToken", res.data.refreshToken);
           navigate("/home");
